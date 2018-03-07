@@ -1,0 +1,23 @@
+-----
+Build
+-----
+go build -o  bin/programToProfile cmd/main.go
+
+----
+Exec
+----
+./bin/programToProfile -cpuprofile=prof/testcpuprofile.prof
+
+---------
+Profiling
+---------
+go tool pprof testcpuprofile.prof
+go tool pprof -web  testcpuprofile.prof
+go tool pprof -pdf testcpuprofile.prof  > ~/test.pdf
+
+
+
+Some links for profiling:
+https://blog.golang.org/profiling-go-programs
+https://golang.org/pkg/runtime/pprof/
+https://godoc.org/github.com/pkg/profile
